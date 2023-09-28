@@ -3,6 +3,7 @@ name: PR Branch Labeler
 permissions:
   issues: write
   pull-requests: write
+  contents: read
 
 on: pull_request
 
