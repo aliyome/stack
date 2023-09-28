@@ -1,8 +1,11 @@
+permissions:
+  pull-requests: write
+
 name: git-pr-release
 on:
   push:
     branches:
-      - "release/**"
+      - "develop"
 jobs:
   git-pr-release:
     runs-on: ubuntu-latest
