@@ -5,11 +5,12 @@ name: git-pr-release
 on:
   push:
     branches:
-      - "develop"
+      - 'develop'
 jobs:
   git-pr-release:
     runs-on: ubuntu-latest
     steps:
+      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0

@@ -3,6 +3,7 @@ name: PR Branch Labeler
 permissions:
   issues: write
   pull-requests: write
+  contents: read
 
 on: pull_request
 
@@ -10,8 +11,9 @@ jobs:
   label_prs:
     runs-on: ubuntu-latest
     steps:
-    - name: Label PRs
-      if: github.event.action == 'opened'
-      uses: ffittschen/pr-branch-labeler@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
+      - name: Label PRs
+        if: github.event.action == 'opened'
+        uses: ffittschen/pr-branch-labeler@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
