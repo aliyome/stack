@@ -14,5 +14,6 @@ jobs:
     name: Assign author to PR
     runs-on: ubuntu-latest
     steps:
+      - uses: GitHubSecurityLab/actions-permissions/monitor@v1
       - name: Assign author to PR
         uses: technote-space/assign-author@v1
